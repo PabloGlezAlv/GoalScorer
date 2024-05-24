@@ -82,7 +82,7 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!ballRunning && !locked)
+        if (!ballRunning && !locked && PlayerData.currentScene == SceneManager.ScenesTypes.game && !PlayerData.movingScenes)
         {
             rb.velocity = Vector2.zero;
             if (Input.touchCount > 0 && touchCount == 0)
