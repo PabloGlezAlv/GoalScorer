@@ -19,23 +19,26 @@ public class SceneManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.anyKeyDown)
-        {
-            ChangeLocation(ScenesTypes.game);
-        }
-    }
+    
 
     public void ChangeLocation(ScenesTypes l)
     {
-        if (PlayerData.currentScene == l) return;
+        if (PlayerData.currentScene == l && !PlayerData.movingScenes) return;
 
         playerBehaviour.changeScene(l);
         cameraBehaviour.changeScene(l);
         canvasSelector.activateCanvas(l);
         PlayerData.currentScene = l;
         PlayerData.movingScenes = true;
+    }
+
+    public void goGame()
+    {
+        ChangeLocation(ScenesTypes.game);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

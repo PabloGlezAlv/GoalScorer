@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeInOut : MonoBehaviour
 {
+    public List<Image> images;
     public List<SpriteRenderer> spriteRenderers;
     public List<TextMeshProUGUI> textMeshProUGUIs;
     public float fadeDuration = 1.0f;  // Duración del fade
@@ -83,6 +85,12 @@ public class FadeInOut : MonoBehaviour
                 {
                     Color textColor = textMeshPro.color;
                     textMeshPro.color = new Color(textColor.r, textColor.g, textColor.b, endAlpha);
+                }
+
+                foreach (var img in images)
+                {
+                    Color textColor = img.color;
+                    img.color = new Color(textColor.r, textColor.g, textColor.b, endAlpha);
                 }
 
                 if (deactivateOnEnd)
