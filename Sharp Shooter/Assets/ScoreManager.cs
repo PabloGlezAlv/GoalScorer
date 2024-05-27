@@ -19,6 +19,16 @@ public class ScoreManager : MonoBehaviour
         recordScoreText.text = bestScore.ToString();
     }
 
+    void OnEnable()
+    {
+        actualScoreText.text = currentScore.ToString();
+        recordScoreText.text = bestScore.ToString();
+    }
+    public void ResetScore()
+    {
+        currentScore = 0;
+    }
+
     public void ResetGame()
     {
         if(currentScore > bestScore)

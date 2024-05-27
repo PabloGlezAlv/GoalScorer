@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SceneManager : MonoBehaviour
     PlayerBehaviour cameraBehaviour;
     [SerializeField]
     CanvasSelector canvasSelector;
+    [SerializeField]
+    ScoreManager scoreManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,11 @@ public class SceneManager : MonoBehaviour
     public void goGame()
     {
         ChangeLocation(ScenesTypes.game);
+    }
+    public void goMenu()
+    {
+        scoreManager.ResetScore();
+        ChangeLocation(ScenesTypes.menu);
     }
 
     public void ExitGame()
